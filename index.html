@@ -72,13 +72,39 @@
             </ul>
           </li> -->
           <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
-          <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
+          <li><a class="getstarted scrollto" href="#about" data-toggle="modal" data-target="#modal_info">Ingresar</a></li>
+          <!-- <button class="btn btn-success" type="button" data-toggle="modal" data-target="#modal_info">Ingresar</button> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
+
+  <div class="modal fade" id="modal_info">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <!-- header -->
+              <div class="modal-header">
+                  <h4 class="modal-title">Ingrese sus datos</h4>
+                  <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- body -->
+              <div class="modal-body">
+                  <label>Usuario:</label><br>
+                  <input class="login" type="email" name="Usuario"><br>
+                  <label>Contraseña:</label><br>
+                  <input class="login" type="password" name="Contraseña"><br>
+              </div>
+
+              <!-- footer -->
+              <div class="modal-footer">
+                  <button class="btn btn-success" data-dismiss="modal">Conectar</button>
+              </div>
+          </div>
+      </div>
+  </div>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -735,8 +761,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Contact Us</p>
+          <h2>Contacto</h2>
+          <p>Contáctenos</p>
         </div>
 
         <div class="row">
@@ -747,22 +773,22 @@
               <div class="col-md-12">
                 <div class="info-box">
                   <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <h3>Nuestra dirección</h3>
+                  <p>Medellín, Calle 10 # 5-51</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
+                  <h3>Email</h3>
+                  <p>info@compumall.com<br>contact@compumall.com</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                  <h3>Llámenos</h3>
+                  <p>444 45 60<br>+57 378 254 44 45</p>
                 </div>
               </div>
             </div>
@@ -773,24 +799,24 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
               </div>
               <div class="my-3">
-                <div class="loading">Loading</div>
+                <div class="loading">Cargando</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
             </form>
           </div>
 
@@ -809,13 +835,13 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>Multi</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+              <h3>CompuMall</h3>
+              <p class="pb-3"><em>Su aliado tecnológico</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                Medellín<br>
+                Calle 10 # 5-51 <br><br>
+                <strong>Télefono:</strong>+57 378 254 44 45<br>
+                <strong>Email:</strong> info@compumall.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -828,24 +854,22 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Enlaces de interes</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Poetafolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Equipo</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Nuestros servicios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Venta de equipos</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Accesorios y partes</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Consultoría</a></li>
             </ul>
           </div>
 
