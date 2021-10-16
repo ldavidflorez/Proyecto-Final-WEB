@@ -43,29 +43,57 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Multi</a></h1>
+      <h1 class="logo"><a href="index.html">COMPUMALL</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li><a class="nav-link" href="index.html">Inicio</a></li>
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Mantenimiento</a></li>
-              <li><a href="#">Reparación</a></li>
-              <li><a href="#">Software</a></li>
+              <li><a href="services.html">Mantenimiento</a></li>
+              <li><a href="services.html">Reparación</a></li>
+              <li><a href="services.html">Venta de productos</a></li>
             </ul>
           </li>
           <li><a class="nav-link" href="portafolio.html">Portafolio</a></li>
-          <li><a class="nav-link" href="inner-page.html">Ingresar</a></li>
+          <li><a class="nav-link active" href="inner-page.html">Ingresar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
-    </div>
   </header><!-- End Header -->
+  <br><br>
+  <section id="contact" class="contact section-bg">
+    <div class="container" >
+      <div class="row content">
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Cargando</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
+          </div>
+          <div class="text-center"><button type="submit">Enviar mensaje</button></div>
+        </form>
+      </div>
+    </div>
+ </section>
+
 
   <main id="main">
 
