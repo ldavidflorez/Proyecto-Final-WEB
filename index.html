@@ -25,6 +25,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -52,9 +55,9 @@
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown"><a href="services.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="services.html">Mantenimiento</a></li>
-              <li><a href="services.html">Reparación</a></li>
-              <li><a href="services.html">Venta de productos</a></li>
+              <li><a href="services.html#mantenimiento">Mantenimiento</a></li>
+              <li><a href="services.html#reparacion">Reparación</a></li>
+              <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
           <li><a class="nav-link" href="portafolio.html">Portafolio</a></li>
@@ -68,48 +71,39 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-      <div class="carousel-inner" role="listbox">
-
-        <!-- Slide 1 -->
-        
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.png)">
-          <div class="carousel-container">
-            <div class="container">
-            </div>
-          </div>
+  <section>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+  
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="assets/img/slide/slide-1.jpg" style="width:100%;">
         </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.png)">
-          <div class="carousel-container">
-            <div class="container">
-            </div>
-          </div>
+  
+        <div class="item">
+          <img src="assets/img/slide/slide-2.jpg" style="width:100%;">
         </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.png)">
-          <div class="carousel-container">
-            <div class="container">
-            </div>
-          </div>
+      
+        <div class="item">
+          <img src="assets/img/slide/slide-3.jpg" style="width:100%;">
         </div>
-
       </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+  
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
       </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
       </a>
-
     </div>
   </section><!-- End Hero -->
 
@@ -120,34 +114,21 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Acerca de</h2>
-          <p>Quienes somos</p>
+          <h2>Inicio</h2>
+          <p>Bienvenido</p>
         </div>
 
         <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              CompuMall es una tienda líder en el mercado con más de 10 años de experiencia. Nuestra
-              meta es ofrecer la mayor variedad de productos y servicios a la mejor calidad y al mejor
-              precio, siempre enfocados en cumplir las necesidades de nuestros clientes. Algunos de 
-              nuestros servicios son:
+          <div class="col-lg-12">
+            <p id="welcome">
+              Bienvenido a CompuMall, tu tienda de informática y tecnología Online No 1. Nuestro valor agregado de calidad y 
+              servicio al cliente es el principal objetivo. Obtienes los mejores precios online con productos 
+              de altísima calidad en todo nuestro <a href="portafolio.html">portafolio</a> 
+              y <a href="services.html">servicio</a> compuesto por, portátiles/accesorios, 
+              computadores/partes, productos gaming, equipos empresariales, teclados, mouse
+              impresoras, scanner, celulares baratos, proyectores y consumibles con envíos a toda 
+              Colombia.
             </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i>Venta de equipos en todas las marcas, tanto en
-              computadores de escritorio como equipos portátiles</li>
-              <li><i class="ri-check-double-line"></i>Accesorios y partes para ofrecer el mejor rendimiento y
-              personalización</li>
-              <li><i class="ri-check-double-line"></i>Servicio de consultoría en infraestructuras de alto rendimiento y 
-              redes</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Estamos comprometidos en promover la sostenibilidad ambiental con nuestros productos
-              y servicios, apoyados en la formación permanente de nuestro equipo de trabajo.
-            </p>
-            <a href="#" class="btn-learn-more">Leer más</a>
-          </div>
         </div>
 
       </div>
@@ -288,75 +269,24 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact section-bg">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Contacto</h2>
-          <p>Contáctenos</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box">
-                  <i class="bx bx-map"></i>
-                  <h3>Nuestra dirección</h3>
-                  <p>Medellín, Calle 10 # 5-51</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email</h3>
-                  <p>info@compumall.com<br>contact@compumall.com</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-phone-call"></i>
-                  <h3>Llámenos</h3>
-                  <p>444 45 60<br>+57 378 254 44 45</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Cargando</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
-              </div>
-              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            </form>
-          </div>
-
+        <div class="row content">
+          <div class="col-lg-12">
+            <p id="welcome">
+              El crecimiento de nuestra empresa, se ha basado en el establecimiento de relaciones a largo plazo con nuestros
+              clientes, con el fin de proporcionarles una plataforma informática estable, segura y confiable. Actualmente,
+              CompuMall cuenta con un número significativo de clientes en todo el territorio nacional, divididos en personas naturales y
+              empresas, quienes han confiado en nosotros por nuestra calidad, precio y mejor servicio. Si
+              quieres conocer más acerca de nosotrs da clic <a href="about.html">aquí</a>. 
+            </p>
         </div>
 
       </div>
-    </section><!-- End Contact Section -->
-
+    </section><!-- End About Section -->
+    
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -388,20 +318,19 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Enlaces de interes</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Poetafolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Equipo</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Nuestros servicios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Venta de equipos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Accesorios y partes</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Consultoría</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Mantenimiento</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Reparación</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Redes</a></li>
             </ul>
           </div>
 

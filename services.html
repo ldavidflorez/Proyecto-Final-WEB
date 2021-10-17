@@ -25,6 +25,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -53,9 +56,9 @@
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown "><a href="services.html" class="active"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="services.html">Mantenimiento</a></li>
-              <li><a href="services.html">Reparación</a></li>
-              <li><a href="services.html">Venta de productos</a></li>
+              <li><a href="services.html#mantenimiento">Mantenimiento</a></li>
+              <li><a href="services.html#reparacion">Reparación</a></li>
+              <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
           <li><a class="nav-link" href="portafolio.html">Portafolio</a></li>
@@ -73,61 +76,69 @@
         <p>Aquí podras encontrar los servicios que ofrecemos</p>
       </div>
 
+      <div class="row content" id="mantenimiento">
+        <div class="col-lg-12">
+          <h2><strong>Mantenimiento de computadores</strong></h2><br><br>
+          <p>
+            Prolonga la vida útil de los equipos, previene fallas y genera detección de fallas temprana.
+            Tenemos a su disposición mantenimiento preventivo físico y de programas:
+          </p><br>
 
-      <div class="row content">
-        <div class="col-lg-6">
-          <h1 id="Mantenimiento">Mantenimiento de computadores</h1>
-          <p>
-            CompuMall es una tienda líder en el mercado con más de 10 años de experiencia. Nuestra
-            meta es ofrecer la mayor variedad de productos y servicios a la mejor calidad y al mejor
-            precio, siempre enfocados en cumplir las necesidades de nuestros clientes. Algunos de 
-            nuestros servicios son:
-          </p>
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <p>
-            Estamos comprometidos en promover la sostenibilidad ambiental con nuestros productos
-            y servicios, apoyados en la formación permanente de nuestro equipo de trabajo.
-          </p>
-        </div>
-      </div>
+          <ul>
+            <li class="ri-check-double-line">Limpieza completa del PC y periféricos</li>
+            <li class="ri-check-double-line">Químico protector para board, contactos y elementos electrónicos</li>
+            <li class="ri-check-double-line">Limpieza de las unidades ópticas (exterior)</li>
+            <li class="ri-check-double-line">Limpieza fuente de poder</li>
+            <li class="ri-check-double-line">Lubricación de ventiladores y extractores</li>
+            <li class="ri-check-double-line">Refrigerante para procesador</li>
+            <li class="ri-check-double-line">Diagnóstico y verificación general de todos los componentes</li>
+            <li class="ri-check-double-line">Limpieza general de archivos y programas</li>
+            <li class="ri-check-double-line">Actualización de antivirus</li>
+            <li class="ri-check-double-line">Desfragmentación de disco duro</li>
+            <li class="ri-check-double-line">Análisis general del funcionamiento del sistema operativo</li>
+          </ul><br><br>
 
-      <div class="row content">
-        <div class="col-lg-6">
-          <h1 id="Reparacion">Reparacion de computadores</h1>
-          <p>
-            CompuMall es una tienda líder en el mercado con más de 10 años de experiencia. Nuestra
-            meta es ofrecer la mayor variedad de productos y servicios a la mejor calidad y al mejor
-            precio, siempre enfocados en cumplir las necesidades de nuestros clientes. Algunos de 
-            nuestros servicios son:
-          </p>
+          <img id="imgsv" src="assets/img/services/mantenimiento-de-computadores.jpg">
         </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <p>
-            Estamos comprometidos en promover la sostenibilidad ambiental con nuestros productos
-            y servicios, apoyados en la formación permanente de nuestro equipo de trabajo.
-          </p>
-        </div>
-      </div>
+      </div><br><br><br>
 
-      <div class="row content">
-        <div class="col-lg-6">
-          <h1 id="Mantenimiento">Venta de productos</h1>
+      <div class="row content" id="reparacion">
+        <div class="col-lg-12">
+          <h2 id="reparacion"><strong>Reparación y solución de fallas</strong></h2><br><br>
           <p>
-            CompuMall es una tienda líder en el mercado con más de 10 años de experiencia. Nuestra
-            meta es ofrecer la mayor variedad de productos y servicios a la mejor calidad y al mejor
-            precio, siempre enfocados en cumplir las necesidades de nuestros clientes. Algunos de 
-            nuestros servicios son:
-          </p>
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <p>
-            Estamos comprometidos en promover la sostenibilidad ambiental con nuestros productos
-            y servicios, apoyados en la formación permanente de nuestro equipo de trabajo.
-          </p>
-        </div>
-      </div>
+            Contamos con herramienta especializada, un equipo de trabajo con la mejor experiencia y procesos
+             especializados que garantizan una solución óptima ante cualquier anomalía que presente su 
+             computador, equipos y periféricos.
+          </p><br><br>
 
+          <img id="imgsv" src="assets/img/services/reparacion-y-solucion-de-fallas.jpg">
+
+        </div>
+      </div><br><br><br>
+
+      <div class="row content" id="redes">
+        <div class="col-lg-12">
+          <h2 id="redes"><strong>Redes y cableado estructurado</strong></h2><br><br>
+          <p>
+            Contamos con certificación bajo las normas ANSI/EIA/TIA/ISO/IEEE, Retie, entre otros que, junto 
+            con nuestra experiencia en el diseño, creación y montaje de los diferentes tipos de redes le 
+            garantizamos el respaldo y solides que está buscando.
+          </p><br>
+
+          <ul>
+            <li class="ri-check-double-line">Diseño y asesoría en cableado estructurado</li>
+            <li class="ri-check-double-line">Instalación red de datos, voz y vídeo</li>
+            <li class="ri-check-double-line">Redes eléctricas reguladas y no reguladas</li>
+            <li class="ri-check-double-line">Iluminación</li>
+            <li class="ri-check-double-line">Mantenimiento preventivo</li>
+            <li class="ri-check-double-line">Reparación y solución de problemas</li>
+          </ul><br><br>
+
+          <img id="imgsv" src="assets/img/services/redes-y-cableado-estructurado.jpg">
+
+        </div>
+      </div><br><br>
+    
     </div>
   </section>
 
@@ -160,20 +171,19 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Enlaces de interes</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Acerca de</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Servicios</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Poetafolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Equipo</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Nuestros servicios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Venta de equipos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Accesorios y partes</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Consultoría</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Mantenimiento</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Reparación</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Redes</a></li>
             </ul>
           </div>
 

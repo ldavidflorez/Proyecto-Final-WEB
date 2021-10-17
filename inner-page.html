@@ -25,6 +25,9 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -43,26 +46,27 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">COMPUMALL</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
+      <h1 class="logo"><a href="index.html">CompuMall</a></h1>
+      
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link" href="index.html">Inicio</a></li>
+          <li><a class="nav-link active" href="index.html">Inicio</a></li>
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
-          <li class="dropdown"><a href="#"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="services.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="services.html">Mantenimiento</a></li>
-              <li><a href="services.html">Reparación</a></li>
-              <li><a href="services.html">Venta de productos</a></li>
+              <li><a href="services.html#mantenimiento">Mantenimiento</a></li>
+              <li><a href="services.html#reparacion">Reparación</a></li>
+              <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
           <li><a class="nav-link" href="portafolio.html">Portafolio</a></li>
-          <li><a class="nav-link active" href="inner-page.html">Ingresar</a></li>
+          <li><a class="nav-link" href="inner-page.html">Ingresar</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+    </div>
+
+
   </header><!-- End Header -->
   <br><br>
   <section id="contact" class="contact section-bg">
@@ -128,13 +132,13 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>Multi</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+              <h3>CompuMall</h3>
+              <p class="pb-3"><em>Su aliado tecnológico</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                Medellín<br>
+                Calle 10 # 5-51 <br><br>
+                <strong>Teléfono:</strong>+57 378 254 44 45<br>
+                <strong>Email:</strong> info@compumall.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -147,32 +151,29 @@
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Enlaces de interes</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Nuestros servicios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Mantenimiento</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Reparación</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Redes</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Nuestro boletín</h4>
+            <p>Ingresa tu correo electrónico para recibir nuestra información</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="Suscribirse">
             </form>
 
           </div>
