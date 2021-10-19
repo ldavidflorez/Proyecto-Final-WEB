@@ -1632,3 +1632,6 @@ section {
   margin-right: auto;
   width: 80%;
 }
+.form-control{
+  width: 50%;
+}
