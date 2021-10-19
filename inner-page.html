@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/validacion-compra.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -72,57 +73,69 @@
   <section id="contact" class="contact section-bg">
     <div class="container" >
       <div class="row content">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <h2>Llene los siguientes datos para realizar su compra:</h2>
+        <form name="contact_" action="" method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col-md-6 form-group">
+              <label>Nombre: </label>
               <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
             </div>
             <div class="col-md-6 form-group mt-3 mt-md-0">
+              <label>Apellidos: </label>
               <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" required>
             </div>
           </div>
           <div class="form-group mt-3">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" required>
+            <label>Correo: </label>
+            <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" required>
           </div>
           <div class="form-group mt-3">
+            <label>Departamento: </label>
+            <input type="text" class="form-control" name="departamento" id="departamento" placeholder="Departamento" required>
+          </div>
+          <div class="form-group mt-3">
+            <label>Municipio: </label>
+            <input type="text" class="form-control" name="municipio" id="municipio" placeholder="Municipio" required>
+          </div>
+          <div class="form-group mt-3">
+            <label>Código postal: </label>
+            <input type="number" class="form-control" name="postal" id="postal" placeholder="Código postal" required>
+          </div>
+          <div class="form-group mt-3">
+            <label>Dirección de envío: </label>
+            <input type="email" name="direccion" id="direccion" placeholder="Dirección de envío" required>
+          </div>
+          <div class="form-group mt-3">
+            <label>Teléfono: </label>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Teléfono" required>
+          </div>
+          <label>Sexo</label>
+					<select class="form-control" name="select" >
+						<option value="0">--Seleccionar--</option>
+						<option id="female" value="1">Femenino</option>
+						<option id="male"value="2">Maculino</option>
+            <option id="other"value="3">Otro</option>
+					</select>
+          <div class="form-group mt-3">
+            <label>Añadir comentario: </label>
             <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
           </div>
+          <h3>Por favor realizar el deposito de su compra en la cuenta 1045673800 de ahorros Bancolombia, para
+            que su pedido sea enviado.
+          </h3>
           <div class="my-3">
             <div class="loading">Cargando</div>
             <div class="error-message"></div>
-            <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
+            <div class="sent-message">Su compra ha sido realizada. Gracias!</div>
           </div>
-          <div class="text-center"><button type="submit">Enviar mensaje</button></div>
+          <div class="row">
+            <div class="col-md-10"><button type="submit">Realizar compra</button></div>
+            <div class="col-md-2"><button type="reset">Borrar</button></div>
+          </div>
         </form>
       </div>
     </div>
  </section>
-
-
-  <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-      <div class="container">
-
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>Inner Page</li>
-        </ol>
-        <h2>Inner Page</h2>
-
-      </div>
-    </section><!-- End Breadcrumbs -->
-
-    <section class="inner-page">
-      <div class="container">
-        <p>
-          Example inner page template
-        </p>
-      </div>
-    </section>
-
-  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
