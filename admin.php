@@ -1,3 +1,11 @@
+//Verificación de que se encuentre autenticado
+<?php 
+	session_start();
+	if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
+		header("Location:login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +36,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/validacion-compra.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -72,20 +81,7 @@
   <section id="contact" class="contact section-bg">
     <div class="container" >
       <div class="row content">
-        <h2>Ingrese con su cuenta de administrador:</h2>
-        <form  name="contact" action="val_login.php" enctype="multipart/form-data" method="post">
-					<label>Usuario: </label><input type="text" name="name" class="form-control"  /><br/>
-          <br/><label>Contraseña: </label><input type="password" name="password"  class="form-control" /><br/>
-
-          <?php
-            if(isset($_GET['invalido']) && $_GET['invalido'] == true){?>
-              <div class="error">
-                <p>El usuario administrador o la contraseña son incorrectos</p>
-              </div>
-          <?php }?>
-
-					<br/><p><input type="submit" value="Enviar" class="button" /><input type="reset" value="Borrar" class="button" /></p>
-				</form>
+        <h2>Usted ha iniciado sesion como <?php print($_SESSION['user']);?> </h2>
       </div>
     </div>
  </section>
