@@ -86,7 +86,7 @@
               <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" href="portafolio.html">Portafolio</a></li>
+          <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
           <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -97,6 +97,13 @@
   <section id="contact" class="contact section-bg">
     <div class="container" >
         <h2>Usted ha iniciado sesion como <?php nom();?></h2>
+        <h3>Como administrador, puede realizar las siguientes acciones, dar click en la que sea de su interes:</h3>
+        <ul>
+            <li><a href="insertar.php">Insertar nuevo producto en el portafolio</a></li>
+            <li><a href="eliminar.php">Eliminar producto del portafolio </a></li>
+            <li><a href="actualizar.php">Actualizar producto del portafolio</a></li>
+            <li><a href="pedidos.php">Observar historial de pedidos realizados </a></li>
+        </ul>
     </div>
  </section>
  
