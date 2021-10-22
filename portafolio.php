@@ -1,3 +1,36 @@
+<?php 
+
+    require_once "./conexionDB.php";
+    function portafolio(){
+        $link=conexion();
+        //Preparar consulta
+        //1)R->Leer
+        $consultaSQL= "SELECT * FROM productos ";
+        $elemento="";
+        //se verifica que se logre hacer la consulta
+        if($resultado=$link->query($consultaSQL)){
+            while($Producto=$resultado->fetch_assoc()){
+              $elemento.="<div class='col-lg-4 col-md-6 portfolio-item filter-".$Producto['tipo']."'>";
+              $elemento.="<img src='assets/img/portfolio/".$Producto['imagen']."' class='img-fluid'>";
+              $elemento.="<div class='portfolio-info'>";
+              $elemento.="<h4>".$Producto['nombre']."</h4>";
+              $elemento.="<p>".$Producto['precio']."</p>";
+              $elemento.="<a href='assets/img/portfolio/'".$Producto['imagen']."data-gallery='portfolioGallery' class='portfolio-lightbox preview-link'></a>";
+              $elemento.="<a href='portfolio-details.php?id=".$Producto['id']."' class='details-link' title='More Details'><i class='bx bx-link'></i></a></div></div>";
+                
+            }
+                
+            
+        }
+        $link->close();
+        return print($elemento);
+      }
+
+   
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -90,25 +123,8 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-computadores">
-            <img src="assets/img/portfolio/Asus_Vivobook.jfif" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href="assets/img/portfolio/Asus_Vivobook.jfif" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
+          <?php portafolio();?>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-componentes">
-            <img src="assets/img/portfolio/Core_i3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href="assets/img/portfolio/Core_i3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-            </div>
-          </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-accesorios">
             <img src="assets/img/portfolio/Camara.jfif" class="img-fluid" alt="">
@@ -400,4 +416,4 @@
 
 </body>
 
-</html>
+</html> -->

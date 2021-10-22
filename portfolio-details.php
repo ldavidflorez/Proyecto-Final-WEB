@@ -1,47 +1,84 @@
+<?php 
+
+    require_once "./conexionDB.php";
+    function portafolioDetails(){
+        $link=conexion();
+        //Preparar consulta
+        //1)R->Leer
+        $consultaSQL= "SELECT * FROM productos WHERE id='".$_GET['id']."'";
+        print( $consultaSQL);
+        $elemento="";
+        //se verifica que se logre hacer la consulta
+        if($resultado=$link->query($consultaSQL)){
+            while($Producto=$resultado->fetch_assoc()){
+              $elemento.="<section id='portfolio-details' class='portfolio-details'><div class='container'><div class='row gy-4'>";
+              $elemento.="<div class='col-lg-8'><div class='portfolio-details-slider swiper'><div class='swiper-wrapper align-items-center'>";
+              $elemento.=" <div class='swiper-slide'>";
+              $elemento.="<img src='assets/img/portfolio/".$Producto['imagen']."'>";
+              $elemento.="</div></div><div class='swiper-pagination'></div></div></div>";
+              $elemento.="<div class='col-lg-4'><div class='portfolio-info'>";
+              $elemento.="<h3>".$Producto['nombre']."</h3>";
+              $elemento.="<ul><li><strong>Precio</strong>:".$Producto['precio']."</li>";
+              $elemento.="<li><strong>Marca</strong>:".$Producto['marca']."</li>";
+              $elemento.="<li><a href='inner-page.html'><strong>Click aquí para comprar</strong></a></li></ul></div>";
+              $elemento.="<div class='portfolio-description'><h2>Caracteristicas</h2>";
+              $elemento.="<p>".$Producto['caracteristica']."</p></div></div></div></div></section>";
+            
+            }
+                
+            
+        }
+        $link->close();
+        return print($elemento);
+      }
+
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Compu Mall</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Multi - v4.6.0
-  * Template URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>Compu Mall</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  
+    <!-- =======================================================
+    * Template Name: Multi - v4.6.0
+    * Template URL: https://bootstrapmade.com/multi-responsive-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+  
+  </head>
+  
+  <body>
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
@@ -68,27 +105,27 @@
 
 
   </header><!-- End Header -->
-  <br><br>
-  <section id="contact" class="contact section-bg">
-    <div class="container" >
-      <div class="row content">
-        <h2>Ingrese con su cuenta de administrador:</h2>
-        <form  name="contact" action="val_login.php" enctype="multipart/form-data" method="post">
-					<label>Usuario: </label><input type="text" name="name" class="form-control"  /><br/>
-          <br/><label>Contraseña: </label><input type="password" name="password"  class="form-control" /><br/>
+  
+  <main id="main">
 
-          <?php
-            if(isset($_GET['invalido']) && $_GET['invalido'] == true){?>
-              <div class="error">
-                <p>El usuario administrador o la contraseña son incorrectos</p>
-              </div>
-          <?php }?>
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
 
-					<br/><p><input type="submit" value="Enviar" class="button" /><input type="reset" value="Borrar" class="button" /></p>
-				</form>
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li>Detalles</li>
+        </ol>
+        <h2>Detalles del producto</h2>
+
       </div>
-    </div>
- </section>
+    </section><!-- End Breadcrumbs -->
+
+    
+
+  </main><!-- End #main -->
+
+  <?php portafolioDetails();?>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -121,7 +158,7 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portafolio.php">Portafolio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar como administrador</a></li>
             </ul>
           </div>

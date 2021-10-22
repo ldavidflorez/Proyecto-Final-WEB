@@ -1,9 +1,27 @@
-//Verificación de que se encuentre autenticado
+
 <?php 
+
 	session_start();
 	if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
 		header("Location:login.php");
 	}
+
+    require_once "./conexionDB.php";
+    function nom(){
+        $link=conexion();
+        //Preparar consulta
+        //1)R->Leer
+        $consultaSQL= "SELECT * FROM login_admin WHERE user='".$_SESSION['user']."'";
+
+        //se verifica que se logre hacer la consulta
+        if($resultado=$link->query($consultaSQL)){
+            $Nombre=$resultado->fetch_assoc();
+                
+            
+        }
+    
+        return print( $Nombre['nombre']);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -74,17 +92,14 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-
-
   </header><!-- End Header -->
   <br><br>
   <section id="contact" class="contact section-bg">
     <div class="container" >
-      <div class="row content">
-        <h2>Usted ha iniciado sesion como <?php print($_SESSION['user']);?> </h2>
-      </div>
+        <h2>Usted ha iniciado sesion como <?php nom();?></h2>
     </div>
  </section>
+ 
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

@@ -1,19 +1,8 @@
 
 <?php 
 
-// configuracion inicial
-define("SERVIDOR","localhost");
-define("USUARIO","root");
-define("PASS","");
-define("DB","dbcompumall");	
-
-$link = new mysqli(SERVIDOR,USUARIO,PASS,DB);
-
-if($link->connect_error) {
-	$error = "Error de conexion: ".$link->connect_errno
-			."Mensaje: ".$link->connect_error;
-	die($error);
-}
+require_once "./conexionDB.php";
+$link=conexion();
 
 //preparar consulta
 $consultaSQL = "SELECT * FROM login_admin WHERE user='".$_POST['name']."' AND pass='".$_POST['password']."' ";
@@ -25,7 +14,7 @@ if($resultado = $link->query($consultaSQL)){
 	if(mysqli_num_rows($resultado) != 0){
 		// $usuario = "SELECT nombre FROM login_admin WHERE user='".$_POST['name']."'";
 		// $nombre = $link->query($usuario);
-		// $c = $nombre->fetch_assoc();
+		print($Nombre = $resultado->fetch_assoc());
 		$usuario = $_POST['name'];
     session_start();
 		$_SESSION['user']=$_POST['name'];
