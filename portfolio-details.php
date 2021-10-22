@@ -6,7 +6,6 @@
         //Preparar consulta
         //1)R->Leer
         $consultaSQL= "SELECT * FROM productos WHERE id='".$_GET['id']."'";
-        print( $consultaSQL);
         $elemento="";
         //se verifica que se logre hacer la consulta
         if($resultado=$link->query($consultaSQL)){

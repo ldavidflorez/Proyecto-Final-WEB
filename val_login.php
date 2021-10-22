@@ -9,12 +9,8 @@ $consultaSQL = "SELECT * FROM login_admin WHERE user='".$_POST['name']."' AND pa
 
 //verificar que se haga la consulta
 if($resultado = $link->query($consultaSQL)){
-	print("OK OK OK OK OK");
 	//verificar que se obtengan resultados
 	if(mysqli_num_rows($resultado) != 0){
-		// $usuario = "SELECT nombre FROM login_admin WHERE user='".$_POST['name']."'";
-		// $nombre = $link->query($usuario);
-		print($Nombre = $resultado->fetch_assoc());
 		$usuario = $_POST['name'];
     session_start();
 		$_SESSION['user']=$_POST['name'];
