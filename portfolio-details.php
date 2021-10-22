@@ -17,8 +17,8 @@
               $elemento.="</div></div><div class='swiper-pagination'></div></div></div>";
               $elemento.="<div class='col-lg-4'><div class='portfolio-info'>";
               $elemento.="<h3>".$Producto['nombre']."</h3>";
-              $elemento.="<ul><li><strong>Precio</strong>:".$Producto['precio']."</li>";
-              $elemento.="<li><strong>Marca</strong>:".$Producto['marca']."</li>";
+              $elemento.="<ul><li><strong>Precio</strong>: ".$Producto['precio']."</li>";
+              $elemento.="<li><strong>Marca</strong>: ".$Producto['marca']."</li>";
               $elemento.="<li><a href='inner-page.html'><strong>Click aquí para comprar</strong></a></li></ul></div>";
               $elemento.="<div class='portfolio-description'><h2>Caracteristicas</h2>";
               $elemento.="<p>".$Producto['caracteristica']."</p></div></div></div></div></section>";
@@ -96,7 +96,6 @@
             </ul>
           </li>
           <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
-          <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -110,11 +109,6 @@
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
-        <ol>
-          <li><a href="index.html">Inicio</a></li>
-          <li>Detalles</li>
-        </ol>
         <h2>Detalles del producto</h2>
 
       </div>
@@ -158,7 +152,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portafolio.php">Portafolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar como administrador</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="login.php">Ingresar como administrador</a></li>
             </ul>
           </div>
 
