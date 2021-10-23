@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 01:11:06
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 7.3.29
+-- Tiempo de generación: 23-10-2021 a las 09:04:27
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,7 +67,7 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `marca`, `caracteristica`, `i
 (2, 'Procesador Core-i3', '$455.000', 'Intel', 'Producto eficiente y de rendimiento estándar en programas de edición de video, contenido y juegos.\r\nMemoria caché de 6 MB, rápida y volátil.\r\nSoporta memoria RAM DDR4.\r\nSu potencia es de 65 W.\r\nCuenta con Hyper-Threading que favorece la ejecución de programas en simultáneo, al dividir el procesador físico en dos procesadores lógicos.Procesador avanzado de alto desempeño y marca líder en el rubro.', 'Core_i3.jpg', 'componentes'),
 (3, 'Cámara interior 2K PAN /TILT', '$156.000', 'Eufy -Security', 'Esta cámara detecta personas y mascotas al instante. Sirve como sistema de Seguridad o Alarma, posee un Alto de	10.8 cm, un Peso de 0.217 kg. El Material es de Plástico. Compatibilidad con 	iOS o Android y Conexión WF Wireless.', 'Camara.jfif', 'accesorios'),
 (4, 'NotebooK HP Pavilion Gaming 15', '$2.500.000', 'HP', 'Procesador: Intel Core i5.\r\nModelo tarjeta de video: NVIDIA GTX 1050.\r\nTamaño de la pantalla: 15.6 pulgadas.\r\nDisco duro HDD: No tiene.\r\nUnidad de estado sólido SSD: 256GB.', 'HP_Notebook.jfif', 'computadores'),
-(5, 'ZenBook Duo 14 LED Full-HD', '$3.200.450', 'ASUS', 'Procesador: Intel Core i7.\r\nModelo tarjeta de video: Integrada.\r\nTamaño de la pantalla: 14 pulgadas.\r\nDisco duro HDD: No tiene.\r\nUnidad de estado sólido SSD: 512GB.', 'Asus_Notebook.jfif', 'computadores'),
+(5, 'ZenBook Duo 14 LED', '$3.200.450', 'ASUS', 'Procesador: Intel Core i7.\r\nModelo tarjeta de video: Integrada.\r\nTamaño de la pantalla: 14 pulgadas.\r\nDisco duro HDD: No tiene.\r\nUnidad de estado sólido SSD: 512GB.', 'Asus_Notebook.jfif', 'computadores'),
 (6, 'Procesador Core-i5', '$ 712.000', 'INTEL', 'Ejecuta programas de edición de videos, creación de contenido, streaming y videojuegos sin afectar el rendimiento del dispositivo.\r\nMemoria caché de 12 MB, rápida y volátil.\r\nProcesador gráfico Intel UHD Graphics 630.\r\nSoporta memoria RAM DDR4.\r\nCuenta con Hyper-Threading que favorece la ejecución de programas en simultáneo, al dividir el procesador físico en dos procesadores lógicos.', 'Core_i5.jpg', 'componentes'),
 (7, 'Escritorio Nilo Roch', '$523.000', 'Roch Ltd', 'Espesor: 15 mm.\r\nRequiere sistema de anclaje: No.\r\nAncho: 137,2 cm.\r\nAcabado: Brillante.\r\nInstrucciones de armado: Incluidas.', 'mesa.jfif', 'accesorios'),
 (8, 'Pavilion Gaming 15', '$3.345.000', 'HP', 'Procesador: Intel Core i5.\r\nModelo tarjeta de video: NVIDIA GTX1660Ti.\r\nTamaño de la pantalla: 15.6 pulgadas.\r\nDisco duro HDD: No tiene.\r\nUnidad de estado sólido SSD: 512Gb.', 'HP_Pavilon.jfif', 'computadores'),
@@ -84,6 +84,35 @@ INSERT INTO `productos` (`id`, `nombre`, `precio`, `marca`, `caracteristica`, `i
 (19, 'Disco duro 4TB + USB 64GB', '$399.000', 'WESTERN DIGITAL', 'Tamaño de disco duro: 2.5pulg.\r\nSistema de formato de archivo: NTFS\r\nCapacidad: 4 TB\r\nEMPAQUETADO\r\nManual de usuario: Si\r\nCables incluidos: USB', 'DiscoDuro_USB.jfif', 'componentes'),
 (20, 'Mouse inalámbrico HP', '$89.000', 'HP', 'Contiene usb inalámbrico.\r\nPosee rueda de desplazamiento.\r\nCon sensor óptico.\r\nResolución de 1000ppp.\r\nCreado para llevar a todas partes.\r\nControl inteligente y navegación fácil.', 'Mouse_Hp.jfif', 'componentes'),
 (21, 'Notebook Lenovo 14w AMD', '$2.200.000', 'LENOVO', 'Disco duro HDD: No tiene.\r\nProfundidad: 22.5.\r\nUnidad óptica: No\r\nTamaño de la pantalla: 14 pulgadas.\r\nProcesador: AMD A6.\r\nTarjeta de Video: AMD Radeon R5 Graphics.', 'Lenovo_Notebook.jfif', 'computadores');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellidos` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `departamento` varchar(50) DEFAULT NULL,
+  `municipio` varchar(50) DEFAULT NULL,
+  `postal` int(7) DEFAULT NULL,
+  `direccion` text DEFAULT NULL,
+  `telefono` int(10) DEFAULT NULL,
+  `observaciones` text DEFAULT NULL,
+  `sexo` varchar(10) DEFAULT NULL,
+  `producto` varchar(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `nombre`, `apellidos`, `email`, `departamento`, `municipio`, `postal`, `direccion`, `telefono`, `observaciones`, `sexo`, `producto`) VALUES
+(1, 'Luis David ', 'Florez Pareja', 'desarrollador1@blackpool.co', 'Antioquia', 'Guarne', 55790, 'Vda. Juan XXIII.', 2147483647, 'NA', '2', '2'),
+(2, 'Luis David ', 'Florez Pareja', 'desarrollador1@blackpool.co', 'Antioquia', 'Guarne', 550, 'Vda.', 2147483647, 'NA', 'Masculino', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -105,6 +134,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -118,7 +153,13 @@ ALTER TABLE `login_admin`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
