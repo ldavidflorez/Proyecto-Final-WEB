@@ -1,32 +1,30 @@
 <?php 
 
-    require_once "./conexionDB.php";
-    function portafolio(){
-        $link=conexion();
-        //Preparar consulta
-        //1)R->Leer
-        $consultaSQL= "SELECT * FROM productos ";
-        $elemento="";
-        //se verifica que se logre hacer la consulta
-        if($resultado=$link->query($consultaSQL)){
-            while($Producto=$resultado->fetch_assoc()){
-              $elemento.="<div class='col-lg-4 col-md-6 portfolio-item filter-".$Producto['tipo']."'>";
-              $elemento.="<img src='assets/img/portfolio/".$Producto['imagen']."' class='img-fluid'>";
-              $elemento.="<div class='portfolio-info'>";
-              $elemento.="<h4>".$Producto['nombre']."</h4>";
-              $elemento.="<p>".$Producto['precio']."</p>";
-              $elemento.="<a href='assets/img/portfolio/'".$Producto['imagen']."data-gallery='portfolioGallery' class='portfolio-lightbox preview-link'></a>";
-              $elemento.="<a href='portfolio-details.php?id=".$Producto['id']."' class='details-link' title='More Details'><i class='bx bx-link'></i></a></div></div>";
-                
-            }
-                
-            
-        }
-        $link->close();
-        return print($elemento);
-      }
+  session_start();
+  if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
+    header("Location:login.php");
+  }
 
-   
+  require_once "./conexionDB.php";
+
+  function crearSelect(){
+    $link = conexion();
+    $consultaSQL = "SELECT * FROM productos";
+
+    $elemento = "";
+    //se verifica que se logre hacer la consulta
+    if($resultado=$link->query($consultaSQL)){
+      $elemento.="<label>Nombre: </label><select name='id' class='form-control'>";
+      $elemento.="<option value='0'>--Seleccionar--</option>";
+      while($Producto=$resultado->fetch_assoc()){
+        $elemento.="<option value=".$Producto['id'].">".$Producto['id']."-".$Producto['nombre']."</option>";        
+      }
+      $elemento.="</select>";       
+            
+    }
+    $link->close();
+    return print($elemento);
+  }
 ?>
 
 
@@ -71,7 +69,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
 </head>
 
 <body>
@@ -81,10 +78,10 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html">CompuMall</a></h1>
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+      
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link " href="index.html">Inicio</a></li>
+          <li><a class="nav-link active" href="index.html">Inicio</a></li>
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown"><a href="services.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -93,55 +90,28 @@
               <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
-          <li><a class="nav-link active" href="portafolio.php">Portafolio</a></li>
-          <?php
-            if(isset($_GET['admin']) && $_GET['admin'] == true){?>
-              <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
-          <?php }?>
-
-          
+          <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
+          <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
+          <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-  </header><!-- End Header --><br><br>
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Aqui podrás encontrar todo nuestro Portafolio</p>
-          <?php
-            if(isset($_GET['check']) && $_GET['check'] == 1){?>
-              <div class="check">
-                <h3><strong>Su registro de compra se ha efectuado con éxito, recuerde realizar el pago para que su su producto sea enviado.</sttrong></h3>
-              </div>
-          <?php }?>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Todos nuestros productos</li>
-              <li data-filter=".filter-computadores">Computadores</li>
-              <li data-filter=".filter-accesorios">Accesorios</li>
-              <li data-filter=".filter-componentes">Componentes</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <?php portafolio();?>
-
-        </div>
-
+  </header><!-- End Header -->
+  <br><br>
+  <section id="contact" class="contact section-bg">
+    <div class="container">
+      <div class="row content">
+        <h2>Elija el nombtre del producto a modificar:</h2>
+        <form action="update.php" enctype="multipart/form-data" method="POST">
+          <?php crearSelect(); ?><br/>
+          <p><input type="submit" value="Seleccionar"/></p>
+        </form>
       </div>
-    </section><!-- End Portfolio Section -->
-
-  </main><!-- End #main -->
+    </div>
+ </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -175,7 +145,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="login.php">Ingresar como administrador</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar como administrador</a></li>
             </ul>
           </div>
 
@@ -229,8 +199,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!-- Bootstrap core JS-->
 
 </body>
 
-</html> -->
+</html>

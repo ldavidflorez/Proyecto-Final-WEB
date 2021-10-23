@@ -14,10 +14,10 @@
     $elemento = "";
     //se verifica que se logre hacer la consulta
     if($resultado=$link->query($consultaSQL)){
-      $elemento.="<label>Nombre: </label><select name='nombre' class='form-control'>";
+      $elemento.="<label>Nombre: </label><select name='id' class='form-control'>";
       $elemento.="<option value='0'>--Seleccionar--</option>";
       while($Producto=$resultado->fetch_assoc()){
-        $elemento.="<option value=".$Producto['nombre'].">".$Producto['nombre']."</option>";        
+        $elemento.="<option value=".$Producto['id'].">".$Producto['id']."-".$Producto['nombre']."</option>";        
       }
       $elemento.="</select>";       
             
@@ -106,8 +106,8 @@
       <div class="row content">
         <h2>Elija el nombtre del producto a eliminar:</h2>
         <form action="control/delete.php" enctype="multipart/form-data" method="POST">
-          <?php crearSelect(); ?>
-          <br/><p><input type="submit" value="Eliminar"/></p>
+          <?php crearSelect(); ?><br/>
+          <p><input type="submit" value="Eliminar"/></p>
         </form>
       </div>
     </div>

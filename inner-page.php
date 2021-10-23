@@ -1,35 +1,3 @@
-<?php 
-
-    require_once "./conexionDB.php";
-    function portafolio(){
-        $link=conexion();
-        //Preparar consulta
-        //1)R->Leer
-        $consultaSQL= "SELECT * FROM productos ";
-        $elemento="";
-        //se verifica que se logre hacer la consulta
-        if($resultado=$link->query($consultaSQL)){
-            while($Producto=$resultado->fetch_assoc()){
-              $elemento.="<div class='col-lg-4 col-md-6 portfolio-item filter-".$Producto['tipo']."'>";
-              $elemento.="<img src='assets/img/portfolio/".$Producto['imagen']."' class='img-fluid'>";
-              $elemento.="<div class='portfolio-info'>";
-              $elemento.="<h4>".$Producto['nombre']."</h4>";
-              $elemento.="<p>".$Producto['precio']."</p>";
-              $elemento.="<a href='assets/img/portfolio/'".$Producto['imagen']."data-gallery='portfolioGallery' class='portfolio-lightbox preview-link'></a>";
-              $elemento.="<a href='portfolio-details.php?id=".$Producto['id']."' class='details-link' title='More Details'><i class='bx bx-link'></i></a></div></div>";
-                
-            }
-                
-            
-        }
-        $link->close();
-        return print($elemento);
-      }
-
-   
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +29,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/validacion-compra.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -71,7 +40,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
 </head>
 
 <body>
@@ -81,10 +49,10 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html">CompuMall</a></h1>
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+      
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link " href="index.html">Inicio</a></li>
+          <li><a class="nav-link active" href="index.html">Inicio</a></li>
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown"><a href="services.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -93,55 +61,45 @@
               <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
-          <li><a class="nav-link active" href="portafolio.php">Portafolio</a></li>
-          <?php
-            if(isset($_GET['admin']) && $_GET['admin'] == true){?>
-              <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
-          <?php }?>
-
-          
+          <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
+          <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-  </header><!-- End Header --><br><br>
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Aqui podrás encontrar todo nuestro Portafolio</p>
-          <?php
-            if(isset($_GET['check']) && $_GET['check'] == 1){?>
-              <div class="check">
-                <h3><strong>Su registro de compra se ha efectuado con éxito, recuerde realizar el pago para que su su producto sea enviado.</sttrong></h3>
-              </div>
-          <?php }?>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Todos nuestros productos</li>
-              <li data-filter=".filter-computadores">Computadores</li>
-              <li data-filter=".filter-accesorios">Accesorios</li>
-              <li data-filter=".filter-componentes">Componentes</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <?php portafolio();?>
-
-        </div>
-
+  
+  </header><!-- End Header -->
+  <br><br>
+  <section id="contact" class="contact section-bg">
+    <div class="container" >
+      <div class="row content">
+        <h2>Llene los siguientes datos para realizar su compra:</h2>
+        <form  name="contact" action="control/ventas.php" method="post">
+					<label>Nombre: </label><input type="text" name="name" class="form-control"  /><br/>
+          <br/><label>Apellidos: </label><input type="text" name="lastname"  class="form-control" /><br/>
+					<br/><label>E-mail: </label><input type="email" name="email"  class="form-control" /><br/>
+          <br/><label>Departamento: </label><input type="text" name="departamento"  class="form-control" /><br/>
+          <br/><label>Municipio: </label><input type="text" name="municipio"  class="form-control" /><br/>
+          <br/><label>Código postal: </label><input type="number" name="postal"  class="form-control" /><br/>
+          <br/><label>Dirección de envío: </label><textarea name="direction" class="form-control" rows="1" cols="20"></textarea><br/>
+					<br/><label>Telefono: </label><input type="number" name="phone"  class="form-control"  /><br/>
+					<br/><label>Observaciones: </label><textarea name="message" rows="2" class="form-control" cols="20"></textarea>
+					<br/><p><label>Sexo</label>
+					<select name="select" class="form-control" >
+						<option value="0">--Seleccionar--</option>
+						<option id="female" value="Femenino">Femenino</option>
+						<option id="male"value="Masculino">Masculino</option>
+            <option id="other"value="Otro">Otro</option>
+					</select>
+					</p>
+          <br/><h3>Por favor realizar el deposito de su compra en la cuenta 1045673800 de ahorros Bancolombia, para
+            que su pedido sea enviado.
+          </h3><br/>
+					<br/><p><input type="submit" value="Enviar" class="button" /><input type="reset" value="Borrar" class="button" /></p>
+				</form>
       </div>
-    </section><!-- End Portfolio Section -->
-
-  </main><!-- End #main -->
+    </div>
+ </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -229,8 +187,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!-- Bootstrap core JS-->
 
 </body>
 
-</html> -->
+</html>

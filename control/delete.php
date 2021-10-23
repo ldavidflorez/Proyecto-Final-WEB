@@ -10,27 +10,13 @@
 
 	//Preparar consulta
 	//1)D->Eliminar
-	$consultaSQL="DELETE FROM productos WHERE nombre='".$_POST['nombre']."'";
+	$consultaSQL="DELETE FROM productos WHERE id='".$_POST['id']."'";
 	print($consultaSQL."<br>");
 
 	//se verifica que se logre hacer la consulta
 	if($resultado=$link->query($consultaSQL)){
-		header("Location:../control/delete.php?check=2");
+		header("Location: ../admin.php?delete=true");
 	}
 
-	$link->close();
-	
-	
-/*	function eliminar(){
-	$mysql = conexion();
-	print($_POST['nombre']);
-	$consultaSQL = "DELETE FROM productos WHERE nombre='".$_POST['nombre']."'";
-	print($consultaSQL);
-	$mysql -> query($consultaSQL);
-	$mysql -> close();
-	header("Location: ../admin.php?check=2");
-}
-
-eliminar();*/
-	
+	$link->close();	
 ?>

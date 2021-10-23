@@ -1,35 +1,36 @@
 <?php 
+	session_start();
+	if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
+		header("Location:index.php");
+	}
 
-    require_once "./conexionDB.php";
-    function portafolio(){
-        $link=conexion();
-        //Preparar consulta
-        //1)R->Leer
-        $consultaSQL= "SELECT * FROM productos ";
-        $elemento="";
-        //se verifica que se logre hacer la consulta
-        if($resultado=$link->query($consultaSQL)){
-            while($Producto=$resultado->fetch_assoc()){
-              $elemento.="<div class='col-lg-4 col-md-6 portfolio-item filter-".$Producto['tipo']."'>";
-              $elemento.="<img src='assets/img/portfolio/".$Producto['imagen']."' class='img-fluid'>";
-              $elemento.="<div class='portfolio-info'>";
-              $elemento.="<h4>".$Producto['nombre']."</h4>";
-              $elemento.="<p>".$Producto['precio']."</p>";
-              $elemento.="<a href='assets/img/portfolio/'".$Producto['imagen']."data-gallery='portfolioGallery' class='portfolio-lightbox preview-link'></a>";
-              $elemento.="<a href='portfolio-details.php?id=".$Producto['id']."' class='details-link' title='More Details'><i class='bx bx-link'></i></a></div></div>";
-                
-            }
-                
-            
-        }
-        $link->close();
-        return print($elemento);
-      }
+	require_once "./conexionDB.php";
 
-   
+	function crearFormulario(){
+		$link=conexion();
+		//Preparar consulta
+		//1)D->Eliminar
+		$consultaSQL="SELECT * FROM productos WHERE id='".$_POST['id']."'";
+
+		//se verifica que se logre hacer la consulta
+		if($resultado=$link->query($consultaSQL)){
+			$elemento = $resultado->fetch_assoc();
+		}
+
+		$formulario = "";
+		$formulario.="<form  name='contact' action='control/modificado.php?id=".$elemento['id']."' enctype='multipart/form-data' method='post'>";
+		$formulario.="<label>Nombre: </label><input type='text' name='nombre' class='form-control' value='".$elemento['nombre']."'/><br/>";
+		$formulario.="<br/><label>Precio: </label><input type='text' name='precio'  class='form-control' value='".$elemento['precio']."'/><br/>";
+		$formulario.="<br/><label>Marca: </label><input type='text' name='marca'  class='form-control' value='".$elemento['marca']."'/><br/>";
+		$formulario.="<br/><label>Caracteristicas: </label><textarea name='caracteristica' class='form-control'></textarea><br/>";
+		$formulario.="<br/><label>Imagen: </label><input type='file' name='imagen' /><br/>";
+
+		$link->close();
+
+		return print($formulario);
+	}
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +72,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
 </head>
 
 <body>
@@ -81,10 +81,10 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo"><a href="index.html">CompuMall</a></h1>
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
+      
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link " href="index.html">Inicio</a></li>
+          <li><a class="nav-link active" href="index.html">Inicio</a></li>
           <li><a class="nav-link" href="about.html">Acerca de</a></li>
           <li class="dropdown"><a href="services.html"><span>Servicios</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -93,55 +93,34 @@
               <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
-          <li><a class="nav-link active" href="portafolio.php">Portafolio</a></li>
-          <?php
-            if(isset($_GET['admin']) && $_GET['admin'] == true){?>
-              <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
-          <?php }?>
-
-          
+          <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
+          <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
+          <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-  </header><!-- End Header --><br><br>
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Aqui podrás encontrar todo nuestro Portafolio</p>
-          <?php
-            if(isset($_GET['check']) && $_GET['check'] == 1){?>
-              <div class="check">
-                <h3><strong>Su registro de compra se ha efectuado con éxito, recuerde realizar el pago para que su su producto sea enviado.</sttrong></h3>
-              </div>
-          <?php }?>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Todos nuestros productos</li>
-              <li data-filter=".filter-computadores">Computadores</li>
-              <li data-filter=".filter-accesorios">Accesorios</li>
-              <li data-filter=".filter-componentes">Componentes</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-          <?php portafolio();?>
-
-        </div>
-
+  </header><!-- End Header -->
+  <br><br>
+  <section id="contact" class="contact section-bg">
+    <div class="container" >
+      <div class="row content">
+        <h2>Ingrese Los datos del nuevo producto:</h2>			 
+		<?php crearFormulario(); ?>
+            <label>Tipo: </label>
+            <select name="tipo" class="form-control" >
+				<option value="0">--Seleccionar--</option>
+				<option value="computadores">computadores</option>
+				<option value="componentes">componentes</option>
+	            <option value="accesorios">accesorios</option>
+			</select>
+			<br/><p><input type="submit" value="Modificar" /></p>
+		</form>
       </div>
-    </section><!-- End Portfolio Section -->
-
-  </main><!-- End #main -->
+    </div>
+ </section>
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -175,7 +154,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="index.html">Inicio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">Acerca de</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portafolio.html">Portafolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="login.php">Ingresar como administrador</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="inner-page.html">Ingresar como administrador</a></li>
             </ul>
           </div>
 
@@ -229,8 +208,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <!-- Bootstrap core JS-->
 
 </body>
 
-</html> -->
+</html>

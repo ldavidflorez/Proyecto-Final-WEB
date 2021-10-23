@@ -105,12 +105,30 @@
             <li><a href="actualizar.php"><strong>Actualizar producto del portafolio</strong></a></li><br>
             <li><a href="pedidos.php"><strong>Observar historial de pedidos realizados</strong> </a></li><br>
         </ul>
+
         <?php
             if(isset($_GET['check']) && $_GET['check'] == 1){?>
               <div class="check">
-                <h3><strong>El producto se ha ingresado con éxtio, puede ir a verificar el Portafolio dando <a href="portafolio.php?admin=true"> click aquí</a></sttrong></h3>
+                <h3><strong>El producto se ha ingresado con éxito, puede ir a verificar el Portafolio dando <a href="portafolio.php?admin=true"> click aquí</a></sttrong></h3>
               </div>
-          <?php }?>
+        <?php }?>
+
+
+        <?php
+          if(isset($_GET['delete']) && $_GET['delete'] == true){?>
+            <div class="check">
+              <h3><strong>El producto se ha eliminado con éxito, puede ir a verificar el Portafolio dando <a href="portafolio.php?admin=true"> click aquí</a></sttrong></h3>
+            </div>
+        <?php }?>
+
+
+        <?php
+          if(isset($_GET['modi']) && $_GET['modi'] == true){?>
+            <div class="check">
+              <h3><strong>El producto se ha modificado con éxito, puede ir a verificar el Portafolio dando <a href="portafolio.php?admin=true"> click aquí</a></sttrong></h3>
+            </div>
+        <?php }?>
+
     </div>
  </section>
  
