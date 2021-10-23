@@ -7,7 +7,7 @@
 	//$producto = pro();
 	//Preparar consulta
 	//1)C->Insertar
-	$consultaSQL="INSERT INTO ventas(nombre,apellidos,email,departamento,municipio,postal,direccion,telefono,observaciones,sexo) VALUE ("
+	$consultaSQL="INSERT INTO ventas(nombre,apellidos,email,departamento,municipio,postal,direccion,telefono,observaciones,sexo, producto) VALUE ("
 	."'".$_POST['name']."',"
     ."'".$_POST['lastname']."',"
     ."'".$_POST['email']."',"
@@ -17,8 +17,8 @@
     ."'".$_POST['direction']."',"
     ."'".$_POST['phone']."',"
     ."'".$_POST['message']."',"
-    ."'".$_POST['select']."'"
-    //."'".$producto."'"
+    ."'".$_POST['select']."', "
+    ."'".$_GET['id']."'"
 	.")";
 
 	//se verifica que se logre hacer la consulta

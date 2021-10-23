@@ -74,7 +74,10 @@
     <div class="container" >
       <div class="row content">
         <h2>Llene los siguientes datos para realizar su compra:</h2>
-        <form  name="contact" action="control/ventas.php" method="post">
+        <?php  
+          $form = "<form  name='contact' action='control/ventas.php?id=".$_GET['id']."'"." method='post'>";
+          print($form);
+        ?>
 					<label>Nombre: </label><input type="text" name="name" class="form-control"  /><br/>
           <br/><label>Apellidos: </label><input type="text" name="lastname"  class="form-control" /><br/>
 					<br/><label>E-mail: </label><input type="email" name="email"  class="form-control" /><br/>

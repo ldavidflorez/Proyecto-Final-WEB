@@ -19,7 +19,7 @@
               $elemento.="<h3>".$Producto['nombre']."</h3>";
               $elemento.="<ul><li><strong>Precio</strong>: ".$Producto['precio']."</li>";
               $elemento.="<li><strong>Marca</strong>: ".$Producto['marca']."</li>";
-              $elemento.="<li><a href='inner-page.php?producto=".$Producto['id']."'><strong>Click aquí para comprar</strong></a></li></ul></div>";
+              $elemento.="<li><a href='inner-page.php?id=".$Producto['id']."'><strong>Click aquí para comprar</strong></a></li></ul></div>";
               $elemento.="<div class='portfolio-description'><h2>Caracteristicas</h2>";
               $elemento.="<p>".$Producto['caracteristica']."</p></div></div></div></div></section>";
             
