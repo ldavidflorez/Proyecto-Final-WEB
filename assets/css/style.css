@@ -1635,8 +1635,12 @@ section {
 .form-control{
   width: 50%;
 }
-.pedidos{
-  border-spacing: 0;
+.cabezera{
+  border-spacing: 5px 5px;
   padding: 5px;
   font-size: 15px;
+  border: solid;
+}
+.error{
+  color: red;
 }
