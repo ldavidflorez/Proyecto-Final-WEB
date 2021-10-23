@@ -1,27 +1,8 @@
-
 <?php 
-
 	session_start();
 	if(!isset($_SESSION['auth']) || !$_SESSION['auth']){
 		header("Location:login.php");
 	}
-
-    require_once "./conexionDB.php";
-    function nom(){
-        $link=conexion();
-        //Preparar consulta
-        //1)R->Leer
-        $consultaSQL= "SELECT * FROM login_admin WHERE user='".$_SESSION['user']."'";
-
-        //se verifica que se logre hacer la consulta
-        if($resultado=$link->query($consultaSQL)){
-            $Nombre=$resultado->fetch_assoc();
-                
-            
-        }
-    
-        return print( $Nombre['nombre']);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +35,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="assets/js/validacion-compra.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -86,34 +66,38 @@
               <li><a href="services.html#redes">Redes</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" href="portafolio.php?admin=true">Portafolio</a></li>
-          <li><a class="nav-link" href="admin.php"> SESIÓN ADMIN</a></li>
+          <li><a class="nav-link" href="portafolio.php">Portafolio</a></li>
+          <li><a class="nav-link" href="admin.php">SESIÓN ADMIN</a></li>
           <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
+
+
   </header><!-- End Header -->
   <br><br>
   <section id="contact" class="contact section-bg">
     <div class="container" >
-        <h2>Usted ha iniciado sesion como <?php nom();?></h2>
-        <h3>Como administrador, puede realizar las siguientes acciones, dar click en la que sea de su interes:</h3><br><br>
-        <ul>
-            <li><a href="insertar.php"><strong>Insertar nuevo producto en el portafolio</strong></a></li><br>
-            <li><a href="eliminar.php"><strong>Eliminar producto del portafolio</strong></a></li><br>
-            <li><a href="actualizar.php"><strong>Actualizar producto del portafolio</strong></a></li><br>
-            <li><a href="pedidos.php"><strong>Observar historial de pedidos realizados</strong> </a></li><br>
-        </ul>
-        <?php
-            if(isset($_GET['check']) && $_GET['check'] == 1){?>
-              <div class="check">
-                <h3><strong>El producto se ha ingresado con éxtio, puede ir a verificar el Portafolio dando <a href="portafolio.php?admin=true"> click aquí</a></sttrong></h3>
-              </div>
-          <?php }?>
+      <div class="row content">
+        <h2>Ingrese Los datos del nuevo producto:</h2>
+        <form  name="contact" action="control/insert.php" enctype="multipart/form-data" method="post">
+					<label>Nombre: </label><input type="text" name="nombre" class="form-control"  /><br/>
+                    <br/><label>Precio: </label><input type="text" name="precio"  class="form-control" /><br/>
+                    <br/><label>Marca: </label><input type="text" name="marca"  class="form-control" /><br/>
+                    <br/><label>Caracteristicas: </label><textarea name="caracteristica"  class="form-control"></textarea><br/>
+                    <br/><label>Imagen: </label><input type="file" name="imagen" /><br/>
+                    <label>Tipo: </label><select name="tipo" class="form-control" >
+						<option value="0">--Seleccionar--</option>
+						<option value="computadores">computadores</option>
+						<option value="componentes">componentes</option>
+                        <option value="accesorios">accesorios</option>
+					</select>
+					<br/><p><input type="submit" value="Insertar" /><input type="reset" value="Borrar" /></p>
+				</form>
+      </div>
     </div>
  </section>
- 
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

@@ -94,7 +94,12 @@
             </ul>
           </li>
           <li><a class="nav-link active" href="portafolio.php">Portafolio</a></li>
-          <!-- <li><a class="nav-link" href="inner-page.html">Ingresar</a></li> -->
+          <?php
+            if(isset($_GET['admin']) && $_GET['admin'] == true){?>
+              <li><a class="nav-link" href="admin.php">ADMIN</a></li>
+          <?php }?>
+
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
